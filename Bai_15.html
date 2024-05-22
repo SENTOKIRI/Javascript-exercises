@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 15</title>
+</head>
+<body>
+    <!-- Kiểu tra kiểu dữ lieu của 2 biến -->
+  
+    <p id ="thongBao" ></p>
+    <button type="button" onclick="kiemtra()">kiem tra</button>
+
+    <script>
+         function kiemtra(){
+            const data1 = "helllo1"
+            const data2 = parseInt(12345);
+            document.getElementById("thongBao").innerHTML = "Kiểu dữ liệu 1: " + typeof data1 + ", Kiểu dữ liệu 2: " + typeof data2;
+            
+        }
+    </script>
+</body>
+</html>

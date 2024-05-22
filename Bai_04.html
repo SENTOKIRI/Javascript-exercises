@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 04</title>
+</head>
+<body>
+    <!-- Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó -->
+    <input type="number" id="soNguyen1"  >
+    <input type="number" id="soNguyen2"  >
+    <input type="number" id="soNguyen3"  >
+    <p id ="thongBao" ></p>
+    <button type="button" onclick="kiemtra()">kiem tra</button>
+
+    <script>
+         function kiemtra(){
+            const SoNguyen1 = document.getElementById("soNguyen1").value;
+            const SoNguyen2 = document.getElementById("soNguyen2").value;
+            const SoNguyen3 = document.getElementById("soNguyen3").value;
+            document.getElementById("thongBao").innerHTML = "Số lớn nhất: " + Math.max(SoNguyen1,SoNguyen2,SoNguyen3);
+            
+        }
+    </script>
+    
+</body>
+</html>

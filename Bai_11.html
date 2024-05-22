@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 11</title>
+</head>
+<body>
+    <!-- Giải phương trình bậc 1. -->
+
+    <input type="number" id="soA" value="0">
+    <input type="number" id="soB" value="0">
+    <p id ="thongBao" ></p>
+    <button type="button" onclick="kiemtra()">kiem tra</button>
+
+    <script>
+         function kiemtra(){
+            const a = document.getElementById("soA").value;
+            const b = document.getElementById("soB").value;
+            if (a == 0) {
+                if (b == 0) {
+                    document.getElementById("thongBao").innerHTML = "Phương trình có vô số nghiệm";
+                } else {
+                    document.getElementById("thongBao").innerHTML ="Phương trình vô nghiệm";
+                }
+            } else {
+                document.getElementById("thongBao").innerHTML = "Nghiệm của phương trình là: x = " + (-b / a);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 13</title>
+</head>
+<body>
+    <!-- Chuyển từ độ C sang độ F. -->
+
+    <input type="number" id="doC" value="0">
+    <p id ="thongBao" ></p>
+    <button type="button" onclick="kiemtra()">kiem tra</button>
+
+    <script>
+         function kiemtra(){
+            const doC = document.getElementById("doC").value;
+            document.getElementById("thongBao").innerHTML =  doC + " C = "+ ((doC * 9) / 5 + 32) +" F";
+            
+        }
+    </script>
+</body>
+</html>

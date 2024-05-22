@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 7</title>
+</head>
+<body>
+    <!-- Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi nhỏ 120 và lớn hơn 0. -->
+
+    <input type="number" id="sotuoi"  value="0">
+    <p id ="thongBao" ></p>
+    <button type="button" onclick="kiemtra()">kiem tra</button>
+
+    <script>
+         function kiemtra(){
+            const tuoi = document.getElementById("sotuoi").value;
+            if (tuoi > 0 && tuoi < 120){
+                document.getElementById("thongBao").innerHTML = "Đây là người.";
+            }
+            else{
+                document.getElementById("thongBao").innerHTML = "Đây không phải là người!!!!!";
+            }
+        }
+    </script>
+
+</body>
+</html>

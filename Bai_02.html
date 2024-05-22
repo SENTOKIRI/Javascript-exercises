@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 02</title>
+</head>
+<body>
+    <!-- Bài 2: Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10. -->
+
+    <input type="number" id="tuoi">
+    <p id="thongBao"></p>
+    <button type="button" onclick="kiemtra()">kiem tra</button>
+    
+    <script>
+        function kiemtra(){
+            let age = document.getElementById("tuoi").value;
+            if (age <= 0){
+                document.getElementById("thongBao").innerHTML = "Tuổi phải lớn hơn 0 !";
+            }
+            else{
+                if (age<15){
+                    document.getElementById("thongBao").innerHTML = "Tuổi của học sinh không đủ để vào học lớp 10.";
+                }
+                else{
+                    document.getElementById("thongBao").innerHTML = "Học sinh có thể vào học lớp 10."
+                }
+            }
+           
+
+        }
+    </script>
+
+</body>
+</html>

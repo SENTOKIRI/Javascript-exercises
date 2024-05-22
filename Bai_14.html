@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 14</title>
+</head>
+<body>
+    <!-- Chuyển từ mét sang feet -->
+    <input type="number" id="soMet" value="0">
+    <p id ="thongBao" ></p>
+    <button type="button" onclick="kiemtra()">kiem tra</button>
+
+    <script>
+         function kiemtra(){
+            const soMet = document.getElementById("soMet").value;
+            document.getElementById("thongBao").innerHTML =  soMet + " m = "+ soMet *3.28084 +" ft";
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 8 </title>
+</head>
+<body>
+    <!-- Tính diện tích hình vuông khi biết cạnh a. -->
+    <input type="number" id="canhA"  value="0">
+    <p id ="thongBao"></p>
+    <button type="button" onclick="kiemtra()">kiem tra</button>
+
+    <script>
+         function kiemtra(){
+            const a = document.getElementById("canhA").value;
+            if (a<=0){
+                document.getElementById("thongBao").innerHTML = "Cạnh không <=0" ;
+            }else{
+                document.getElementById("thongBao").innerHTML = "Diện tích = " + (a*a);
+            }
+        }
+    </script>
+</body>
+</html>

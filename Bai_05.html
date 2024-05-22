@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Document</title>
+</head>
+<body>
+    <!-- Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ -->
+
+    <input type="number" id="diemKKiemTra">
+    <input type="number" id="diemThi">
+    <p id = "thongBao"></p>
+    <button type="button" onclick="kiemtra()">kiem tra</button>
+    <script>
+        function kiemtra(){
+            const diemKKiemTra = document.getElementById("diemKKiemTra").value;
+            const diemThi = document.getElementById("diemThi").value;
+            const diemCuoiKi = (diemKKiemTra*3+ diemThi*7)/10;
+            if (diemCuoiKi>=8.5){
+                document.getElementById("thongBao").innerHTML = diemCuoiKi+ " - A";
+            } else if(diemCuoiKi>=7 && diemCuoiKi< 8.5 ){
+                document.getElementById("thongBao").innerHTML = diemCuoiKi+ " - B";
+            }else if(diemCuoiKi>=5.5 && diemCuoiKi< 7){
+                document.getElementById("thongBao").innerHTML = diemCuoiKi+ " - C";
+            }else if(diemCuoiKi>=4 && diemCuoiKi< 5.5){
+                document.getElementById("thongBao").innerHTML = diemCuoiKi+ " - D";
+            }else if(diemCuoiKi<4 ){
+                document.getElementById("thongBao").innerHTML = diemCuoiKi+ " - F";
+            }
+
+          
+           
+           
+       }
+   </script>
+</body>
+</html>

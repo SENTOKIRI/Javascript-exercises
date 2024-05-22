@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 12</title>
+</head>
+<body>
+    <!-- Giải phương trình bậc 2. -->
+
+    <input type="number" id="soA" value="0">
+    <input type="number" id="soB" value="0">
+    <input type="number" id="soC" value="0">
+    <p id ="thongBao" ></p>
+    <button type="button" onclick="kiemtra()">kiem tra</button>
+
+
+    <script>
+        function kiemtra(){
+            const a = document.getElementById("soA").value;
+            const b = document.getElementById("soB").value;
+            const c = document.getElementById("soC").value;
+            const delta = b * b - 4 * a * c;
+            if (delta < 0) {
+                document.getElementById("thongBao").innerHTML ="Phương trình vô nghiệm";
+            } else if (delta == 0) {
+                document.getElementById("thongBao").innerHTML = "Phương trình có nghiệm kép: x = " + (-b / (2 * a));
+            } else {
+                document.getElementById("thongBao").innerHTML =
+                "Phương trình có hai nghiệm phân biệt: x1 = " + ((-b + Math.sqrt(delta)) / (2 * a)) +
+                                                    ", x2 = " + ((-b - Math.sqrt(delta)) / (2 * a));
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 03</title>
+</head>
+<body>
+    <!-- Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn 0 -->
+
+    <input type="number" id="soNguyen"  value="0">
+    <p id ="thongBao" ></p>
+    <button type="button" onclick="kiemtra()">kiem tra</button>
+
+    <script>
+         function kiemtra(){
+            const SoNguyen = document.getElementById("soNguyen").value;
+            if (SoNguyen<0){
+                document.getElementById("thongBao").innerHTML = "Số nhỏ hơn 0.";
+            }
+            else if (SoNguyen>0){
+               document.getElementById("thongBao").innerHTML = "Số lớn hơn 0.";
+            }
+            else{
+                document.getElementById("thongBao").innerHTML = "Số bằng 0.";
+            }
+        }
+    </script>
+</body>
+</html>

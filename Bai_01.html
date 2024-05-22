@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai Tap 01</title>
+</head>
+<body>
+
+    <input type="number" id="number1">
+    <input type="number" id="number2">
+    <p id="ketqua"></p>
+    <button type="button" onclick="kiemtra()" >Kiem tra</button>
+
+    <script>
+        
+        function kiemtra() {
+            let a = document.getElementById("number1").value ;
+            let b = document.getElementById("number2").value ;
+            if (a!=0 && b!=0){
+                if(a%b===0){
+                document.getElementById("ketqua").innerHTML = a +" có chia hết cho"+ b;
+            } else{
+                document.getElementById("ketqua").innerHTML = a +" không chia hết cho "+ b;
+            }
+            } else{
+                document.getElementById("ketqua").innerHTML = " 2 số phải khác 0";
+            } 
+        }
+       
+    </script>
+</body>
+</html>
