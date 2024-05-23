@@ -6,30 +6,33 @@
     <title>Bai 02</title>
 </head>
 <body>
-    <!-- Bài 2: Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10. -->
+    <!-- Bài 2: Viết một chương trình JavaScript để tìm một giá tri được nhập vào từ hộp thoại có nằm trong mảng hay không.
+    Nếu có in ra vị trí của phần tử đó. -->
 
-    <input type="number" id="tuoi">
-    <p id="thongBao"></p>
+     <input type="number" id="nhapSo">
+    <p id="mang"></p>
+    <p id="vitri"></p>
     <button type="button" onclick="kiemtra()">kiem tra</button>
-    
-    <script>
-        function kiemtra(){
-            let age = document.getElementById("tuoi").value;
-            if (age <= 0){
-                document.getElementById("thongBao").innerHTML = "Tuổi phải lớn hơn 0 !";
-            }
-            else{
-                if (age<15){
-                    document.getElementById("thongBao").innerHTML = "Tuổi của học sinh không đủ để vào học lớp 10.";
-                }
-                else{
-                    document.getElementById("thongBao").innerHTML = "Học sinh có thể vào học lớp 10."
-                }
-            }
-           
 
+
+    <script>
+        let array =[1,10,55,22,11,33,15,23,9,6,8,4,3,5];
+        document.getElementById("mang").innerHTML = array.join(", ");
+
+        function kiemtra(){
+            let x = parseInt(document.getElementById("nhapSo").value);
+            for(let i=0;i<array.length;i++){
+                if(array[i]===x){
+                    document.getElementById("vitri").innerHTML = "Vi tri cua so "+x+" la: "+i;  
+                    break; 
+                } 
+                else{
+                    document.getElementById("vitri").innerHTML = "Khong tim thay so "+x;
+                }
+            }
         }
-    </script>
+    </script> 
+
 
 </body>
 </html>

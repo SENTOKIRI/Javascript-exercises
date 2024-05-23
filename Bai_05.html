@@ -2,37 +2,127 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 05</title>
 </head>
 <body>
-    <!-- Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ -->
+    <!--  Mô phỏng ứng dụng todo list, tạo sẵn một mảng todoList có sẵn 2 phần tử const todoList = [“Go to bed at 11pm”, “Do homework at 8pm”];
+Sử dụng những kiến thức thao tác với mảng (C/R/U/D), hỏi người dùng command mà người dùng muốn nhập vào thông qua 4 chữ cái C/R/U/D :
 
-    <input type="number" id="diemKKiemTra">
-    <input type="number" id="diemThi">
-    <p id = "thongBao"></p>
-    <button type="button" onclick="kiemtra()">kiem tra</button>
-    <script>
-        function kiemtra(){
-            const diemKKiemTra = document.getElementById("diemKKiemTra").value;
-            const diemThi = document.getElementById("diemThi").value;
-            const diemCuoiKi = (diemKKiemTra*3+ diemThi*7)/10;
-            if (diemCuoiKi>=8.5){
-                document.getElementById("thongBao").innerHTML = diemCuoiKi+ " - A";
-            } else if(diemCuoiKi>=7 && diemCuoiKi< 8.5 ){
-                document.getElementById("thongBao").innerHTML = diemCuoiKi+ " - B";
-            }else if(diemCuoiKi>=5.5 && diemCuoiKi< 7){
-                document.getElementById("thongBao").innerHTML = diemCuoiKi+ " - C";
-            }else if(diemCuoiKi>=4 && diemCuoiKi< 5.5){
-                document.getElementById("thongBao").innerHTML = diemCuoiKi+ " - D";
-            }else if(diemCuoiKi<4 ){
-                document.getElementById("thongBao").innerHTML = diemCuoiKi+ " - F";
-            }
+C — Create:
+Cho người dùng nhập vào todo mới, sau đó in ra toàn bộ phần tử có trong todoList theo dạng :
+1. Go to bed at 11pm
+2. Do homework at 8pm 
+3. New todo
+4. Something add new
 
-          
-           
-           
-       }
-   </script>
+R — Read:
+In ra toàn bộ phần tử có trong todoList giống danh sách trên
+
+U — Update:
+Hỏi người dùng vị trí phần tử muốn update
+Hỏi người dùng nội dung muốn update → tiến hành update
+Sau đó in ra toàn bộ phần tử có trong todoList giống danh sách trên
+
+D — Delete:
+Hỏi người dùng vị trí phần tử muốn delete
+Tiến hành delete
+Sau đó in ra toàn bộ phần tử có trong todoList giống danh sách trên -->
+
+<input type="text" id="chucnang" placeholder="chon tinh nang (C/R/U/D)">
+<button type="button" onclick="chonCase()">thuc thi</button>
+<p id="thongBao"></p>
+<ul id="todoList"></ul>
+
+<div id="create_Todo" style="display: none;">
+    <input type="text" id="TodoCreate">
+    <button type="button" onclick="createTodo()"> Tao</button>
+</div>
+
+<div id="update_Todo" style="display: none;">
+    <input type="number" id="TodoIndexUpdate">
+    <input type="text" id="TodoUpdate">
+    <button type="button" onclick="updateTodo()">Cap nhat</button>
+</div>
+
+<div id="delete_Todo" style="display: none;">
+    <input type="number" id="TodoDelete">
+    <button type="button" onclick="deleteTodo()">Xoa</button>
+</div>
+
+<script>
+    const todoList = ["Go to bed at 11pm", "Do homework at 8pm"];
+
+    function chonCase() {
+        var chon = document.getElementById("chucnang").value;
+
+        var div_create_Todo = document.getElementById("create_Todo");
+        var div_update_Todo = document.getElementById("update_Todo");
+        var div_delete_Todo = document.getElementById("delete_Todo");
+
+        switch (chon) {
+            case "C":
+                div_create_Todo.style.display = "block";
+                document.getElementById("thongBao").innerHTML = null;
+                break;
+            case "R":
+                printTodoList();
+                document.getElementById("thongBao").innerHTML = null;
+                break;
+            case "U":
+                div_update_Todo.style.display = "block";
+                document.getElementById("thongBao").innerHTML = null;
+                break;
+            case "D":
+                div_delete_Todo.style.display = "block";
+                document.getElementById("thongBao").innerHTML = null;
+                break;
+            default:
+                document.getElementById("thongBao").innerHTML = "thong tin nhap chua dung";
+
+        }
+    }
+
+    function printTodoList() {
+        const todoListElement = document.getElementById("todoList");
+        todoListElement.innerHTML = "";
+        todoList.forEach((todo, index) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${index + 1}. ${todo}`;
+            todoListElement.appendChild(listItem);
+        });
+    }
+
+    function createTodo() {
+        var addTodo = document.getElementById("TodoCreate").value;
+        todoList.push(addTodo);
+        printTodoList();
+        document.getElementById("create_Todo").style.display = "none";
+    }
+
+    function updateTodo() {
+        var index = document.getElementById("TodoIndexUpdate").value;
+        if (index >= 0 && index < todoList.length) {
+            var updatedTodo = document.getElementById("TodoUpdate").value;
+            todoList[index] = updatedTodo;
+            printTodoList();
+            document.getElementById("update_Todo").style.display = "none";
+        } else {
+            document.getElementById("thongBao").innerHTML = "index ko phu hop !";
+        }
+    }
+
+    function deleteTodo() {
+        var index = document.getElementById("TodoDelete").value;
+        if (index >= 0 && index < todoList.length) {
+            todoList.splice(index, 1);
+            printTodoList();
+            document.getElementById("delete_Todo").style.display = "none";
+        } else {
+            document.getElementById("thongBao").innerHTML = "index ko phu hop !";
+        }
+    }
+</script>
+  
 </body>
 </html>

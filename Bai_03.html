@@ -3,28 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bai 03</title>
+    <title>BAI 03</title>
 </head>
 <body>
-    <!-- Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn 0 -->
+    <!-- Tạo mảng có sẵn với các phẩn tử số. Cho người dùng nhập vào một số bất kỳ, sau đó tiến hành kiểm tra:
+    Nếu số đó có trong mảng cho sẵn thì alert(“Bingo”)
+    Nếu số đó không có trong mảng cho sẳn thì alert(“Chúc bạn may mắn lần sau”)
+    Và tiếp tục cho người dung chọn 1 số mới -->
 
-    <input type="number" id="soNguyen"  value="0">
-    <p id ="thongBao" ></p>
-    <button type="button" onclick="kiemtra()">kiem tra</button>
+    <input type="number" id="nhapSo" placeholder="nhap 1 so bat ky">
+    <button type="button" onclick="kiemTra()">Kiểm tra</button>
+
 
     <script>
-         function kiemtra(){
-            const SoNguyen = document.getElementById("soNguyen").value;
-            if (SoNguyen<0){
-                document.getElementById("thongBao").innerHTML = "Số nhỏ hơn 0.";
-            }
-            else if (SoNguyen>0){
-               document.getElementById("thongBao").innerHTML = "Số lớn hơn 0.";
-            }
-            else{
-                document.getElementById("thongBao").innerHTML = "Số bằng 0.";
+         let array = [1,10,55,22,11,33,15,23,9,6,8,4,3,5];
+    function kiemTra() {
+        let x = parseInt(document.getElementById("nhapSo").value);
+        let check = false; 
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === x) {
+                check = true;
+                break; 
             }
         }
+        if (check) {
+            alert("Bingo");
+            document.getElementById("nhapSo").value= null;
+        } else {
+            alert("Chúc bạn may mắn lần sau");
+            document.getElementById("nhapSo").value= null;
+        }
+    }
     </script>
 </body>
 </html>

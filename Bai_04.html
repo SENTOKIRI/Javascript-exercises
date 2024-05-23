@@ -5,23 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bai 04</title>
 </head>
-<body>
-    <!-- Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó -->
-    <input type="number" id="soNguyen1"  >
-    <input type="number" id="soNguyen2"  >
-    <input type="number" id="soNguyen3"  >
-    <p id ="thongBao" ></p>
-    <button type="button" onclick="kiemtra()">kiem tra</button>
+<body >
+    <!-- Bài 4: Cho người dùng nhập vào dãy số bất kỳ. Sử dụng split() để chuyển đổi kiểu dữ liệu từ string sang kiểu array. 
+        Tiến hành duyệt các phần tử và tìm ra phần tử có giá trị lớn nhất trong mảng
+ -->
+
+    <input type="text" id = "nhapMang">
+    <button type="button" onclick="kiemtra()">Kiem tra</button>
+    <p id="ketqua"></p>
 
     <script>
-         function kiemtra(){
-            const SoNguyen1 = document.getElementById("soNguyen1").value;
-            const SoNguyen2 = document.getElementById("soNguyen2").value;
-            const SoNguyen3 = document.getElementById("soNguyen3").value;
-            document.getElementById("thongBao").innerHTML = "Số lớn nhất: " + Math.max(SoNguyen1,SoNguyen2,SoNguyen3);
-            
+        function kiemtra(){
+            var mang = document.getElementById("nhapMang").value;
+            var tachMang = mang.split("").map(Number);;
+            var max = tachMang[0];
+            for (var i = 0; i < tachMang.length; i++) {
+                if (max < tachMang[i]) {
+                    max = tachMang[i]; 
+                }
+            }
+            document.getElementById("ketqua").innerHTML = "so lon nhat la:"+ max;
         }
     </script>
-    
+
 </body>
 </html>
